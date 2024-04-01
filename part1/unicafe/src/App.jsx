@@ -1,36 +1,53 @@
 import { useState } from 'react'
+
+const StatisticLine = ({ value, text }) => {
+  return (
+    <tr>
+      <td> {text} </td>
+      <td> {value} </td>
+    </tr>
+  );
+};
+
 const Statistics = ({good, neutral, bad}) => {
   const total = good + neutral + bad;
   const avg = total === 0 ? 0 : (good*1 + neutral*0 + bad*-1)/total;
   const positive = total === 0 ? 0 : (good / total) *100;
+
+  const getValue = (valueType) => {
+    switch(valueType) {
+      case 'good':
+        return good;
+        break;
+      case 'neutral':
+        return neutral;
+        break;
+      case 'bad':
+        return bad;
+        break;
+      case 'total':
+        return total;
+      break;
+      case 'avg':
+        return avg;
+      break;
+      case 'positive':
+        return positive + " %";
+      break;
+      default:
+        break;
+    }
+  };
   return (
     <div>
       <table>
         <tbody>
-          <tr>
-            <td>good </td>
-            <td> {good} </td>
-          </tr>
-          <tr>
-          <td>neutral </td>
-          <td> {neutral} </td>
-          </tr>
-          <tr>
-          <td>bad </td>
-          <td> {bad} </td>
-          </tr>
-          <tr>
-          <td>all </td>
-          <td> {total} </td>
-          </tr>
-          <tr>
-          <td>average </td>
-          <td> {avg} </td>
-          </tr>
-          <tr>
-          <td>positive </td>
-          <td> {positive} %</td>
-          </tr>
+        <StatisticLine text="good" value ={getValue("good")} />
+        <StatisticLine text="neutral" value ={getValue("neutral")} />
+        <StatisticLine text="bad" value ={getValue("bad")} />
+        <StatisticLine text="total" value ={getValue("total")} />
+        <StatisticLine text="average" value ={getValue("avg")} />
+        <StatisticLine text="positive" value ={getValue("positive")} />
         </tbody>
       </table>  
     </div>
