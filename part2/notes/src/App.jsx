@@ -9,17 +9,15 @@ const App = (props) => {
   const notesToShow = showAll ? notes : notes.filter(note => note.important)
 
   const addNote = (event) => {
-    const addNote = (event) => {
-      event.preventDefault()
-      const noteObject = {
-        content: newNote,
-        important: Math.random() < 0.5,
-        id: notes.length + 1,
-      }
-    
-      setNotes(notes.concat(noteObject))
-      setNewNote('')
+    event.preventDefault()
+    const noteObject = {
+      content: newNote,
+      important: Math.random() < 0.5,
+      id: notes.length + 1,
     }
+    
+    setNotes(notes.concat(noteObject))
+    setNewNote('')
   }
 
   const handleNoteChange = (event) => {
