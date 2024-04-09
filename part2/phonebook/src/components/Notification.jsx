@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 const Notification = ({ message }) => {
-    if (message === null) {
+    if (message == null || undefined) {
       return null
     } else if (message.includes("Added") || (message.includes("Updated"))) {
         return (
