@@ -63,7 +63,12 @@ const App = () => {
         setTimeout(() => {
           setErrorMessage(null);
         }, 3000);
-        
+      })
+      .catch(error => {
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 3000);
       })
     } else {
       const person = persons.find(obj => obj.name === personObj.name)
