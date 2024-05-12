@@ -5,6 +5,7 @@ import config from './utils/config.js'
 import router from './controllers/blogs.js'
 import middleware from './utils/middleware.js'
 import logger from './utils/logger.js'
+import 'express-async-errors'
 
 const app = express()
 

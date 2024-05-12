@@ -4,8 +4,7 @@ import Blog from '../models/blog.js'
 const router = express.Router();
 
 router.get('/', (request, response) => {
-    Blog
-      .find({})
+    Blog.find({})
       .then(blogs => {
         response.json(blogs)
       })

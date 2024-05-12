@@ -1,6 +1,5 @@
-import { test } from 'node:test'
+import test from 'node:test'
 import assert from 'node:assert'
-
 import testingUtils from '../utils/for_testing.js'
 
 test('reverse of a', () => {
